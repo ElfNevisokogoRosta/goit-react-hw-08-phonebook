@@ -62,6 +62,7 @@ export const App: React.FC = () => {
           path="/auth"
           element={isLoggedIn ? <Navigate to="/" replace /> : <Auth />}
         />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </MainContainer>
   );

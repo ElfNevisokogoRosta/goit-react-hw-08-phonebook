@@ -1,8 +1,7 @@
 import styled from "styled-components";
 const Container = styled.li`
-  width: 500px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   color: #fff;
   font-size: 24px;
 `;

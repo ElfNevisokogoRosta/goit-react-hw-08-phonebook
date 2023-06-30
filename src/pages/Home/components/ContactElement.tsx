@@ -23,9 +23,8 @@ export const ContactElement: React.FC<ContactElementProps> = ({ contact }) => {
   const removeContact = async () => {
     const id = contact.id!;
     try {
-      const res = await mutate({ id, token });
+      await mutate({ id, token });
       refetch();
-      console.log(res);
     } catch (error) {}
   };
   return (

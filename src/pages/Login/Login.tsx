@@ -64,6 +64,7 @@ export const Login: React.FC = () => {
               id="standard-basic"
               type="email"
               onChange={emailHandler}
+              required
             />
           </InputWraper>
           <InputWraper theme={theme}>
@@ -72,6 +73,7 @@ export const Login: React.FC = () => {
               id="standard-basic"
               type="password"
               onChange={passwordHandler}
+              required
             />
           </InputWraper>
 

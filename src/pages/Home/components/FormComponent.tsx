@@ -20,7 +20,7 @@ export const FormComponent = () => {
   const [number, setNumber] = useState<string>("");
   const token = useSelector((state: RootState) => state.contactBook.token)!;
   const [mutate, { isLoading }] = usePostNewContactMutation();
-  const { refetch } = useGetUsersContactsQuery(token);
+  const { data, refetch } = useGetUsersContactsQuery(token);
   const nameHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
   };
@@ -29,6 +29,10 @@ export const FormComponent = () => {
   };
   const formHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (data?.some((contact: ContactI) => contact.name === name)) {
+      toast.error("This contact is already in a list");
+      return;
+    }
     const newContact: ContactI = { name, number };
     try {
       await mutate({ contact: newContact, token });

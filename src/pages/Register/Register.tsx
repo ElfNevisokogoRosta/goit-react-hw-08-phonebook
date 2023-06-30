@@ -32,12 +32,6 @@ export const Register = () => {
   };
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(name.length);
-    console.log(email.length);
-    if (name.length === 0 || email.length === 0) {
-      toast.error("Enter user data");
-      return;
-    }
     if (password.length < 7) {
       toast.error("Password length must be 7 or more symbols");
       return;
@@ -71,6 +65,7 @@ export const Register = () => {
               autoComplete="off"
               value={name}
               onChange={nameHandler}
+              required
             />
           </InputWraper>
           <InputWraper theme={theme}>
@@ -81,6 +76,7 @@ export const Register = () => {
               autoComplete="off"
               value={email}
               onChange={emailHandler}
+              required
             />
           </InputWraper>
           <InputWraper theme={theme}>
@@ -91,6 +87,7 @@ export const Register = () => {
               autoComplete="new-password"
               value={password}
               onChange={passwordHandler}
+              required
             />
           </InputWraper>
           <SubmitBtn type="submit" disabled={isLoading} theme={theme}>
